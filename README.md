@@ -4,7 +4,7 @@
 
 ## English
 
-An Antigravity plugin that keeps a large, categorized skill warehouse out of your global context and injects **only the skills a project actually needs** into `<project>/.agents/skills/`.
+A tool for AI coding agents (Antigravity, Codex, Claude Code, or any agent that reads `.agents/skills/`) that keeps a large, categorized skill warehouse out of your global context and injects **only the skills a project actually needs** into `<project>/.agents/skills/`.
 
 ### Why
 Loading dozens of skills globally bloats context and hurts agent focus. Skill Hub stores them in a warehouse (`~/.agents/skills/`) and installs them per project, on demand, after you confirm.
@@ -44,12 +44,15 @@ node $HUB remove <skill...|all> --project <root>
 - `copy` (default): independent copy. `symlink`: stays in sync with the warehouse.
 - `remove` only deletes skills carrying a `.skill-hub-origin.json` marker; native project skills are never touched.
 
+### Compatibility
+The CLI and `SKILL.md` are agent-agnostic. The `hooks.json` auto-trigger and confirmation hook are Antigravity features; with other agents, run the CLI manually.
+
 ### Safety
 A `PreToolUse` hook forces a confirmation prompt on any `inject` command lacking `--confirmed-by-user`.
 
 ## 中文
 
-一个 Antigravity 插件:把分类整理好的技能仓库放在全局上下文之外,**只把项目真正需要的技能**注入到 `<项目>/.agents/skills/`。
+一个面向 AI 编码助手的工具(Antigravity、Codex、Claude Code 等任何读取 `.agents/skills/` 的 Agent 均可使用):把分类整理好的技能仓库放在全局上下文之外,**只把项目真正需要的技能**注入到 `<项目>/.agents/skills/`。
 
 ### 为什么需要
 全局加载几十个技能会撑爆上下文、分散 Agent 注意力。Skill Hub 把技能存放在全局仓库(`~/.agents/skills/`),经你确认后按项目按需安装。
@@ -88,6 +91,9 @@ node $HUB remove <技能...|all> --project <根目录>
 ```
 - `copy`(默认):独立复制;`symlink`:软链接,与全局仓库同步。
 - `remove` 只删除带 `.skill-hub-origin.json` 标记的技能,**绝不删除项目原生技能**。
+
+### 兼容性
+命令行和 `SKILL.md` 与具体 Agent 无关。`hooks.json` 的自动触发与确认钩子是 Antigravity 的功能;在其他 Agent 中请手动运行命令行。
 
 ### 安全机制
 `PreToolUse` 钩子会拦截任何缺少 `--confirmed-by-user` 的 `inject` 命令,并强制弹窗确认。
