@@ -1,0 +1,24 @@
+{
+  "skill-hub-lifecycle": {
+    "enabled": true,
+    "SessionStart": [
+      {
+        "type": "command",
+        "command": "node ./scripts/session-start-hook.mjs",
+        "timeout": 10
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "run_command",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ./scripts/pre-tool-hook.mjs",
+            "timeout": 30
+          }
+        ]
+      }
+    ]
+  }
+}
