@@ -2,7 +2,7 @@
   "name": "skill-hub",
   "displayName": "Skill & Plugin Hub (按需注入管家)",
   "version": "1.0.0",
-  "description": "统一管理本机所有 Skills 与 Plugins（.codex / .agents / .claude / .gemini），支持一键查看库存、根据当前项目技术栈智能推荐、以及按需软链或通过 skills.json 注入到任意项目级 .agents/ 目录。",
+  "description": "按需注入管家:把全局分类技能仓库(~/.agents/skills/)中的技能,经弹窗确认后按需复制或软链到项目级 .agents/skills/;仅在项目没有项目级 skills 时触发。 | On-demand skill injector: copies/symlinks skills from a global categorized warehouse into a project's .agents/skills/ after user confirmation; triggers only when the project has no project-level skills.",
   "suggestedPrompts": [
     "查看本机有哪些技能包和插件可以注入到当前项目",
     "分析当前项目技术栈，推荐并按需注入适合的技能与插件",
